@@ -20,6 +20,7 @@ The technical documentation file is currently **Work In Progress (WIP)** because
 * Architecture breakdown of the codebase (`src/calc` and `src/window`).
 * Deep dive into the core precision conversion algorithm logic.
 * The possibility to use commercial units (Kilobytes, Megabits, etc...).
+* A use for the Menu Bar (Or maybe delete it if there is no possible use of it).
 
 ---
 
@@ -43,6 +44,7 @@ El archivo de documentación técnica está actualmente en **Work In Progress (W
 * Explicación de la arquitectura del código (`src/calc` y `src/window`).
 * Documentación de la lógica del algoritmo de conversión de precisión.
 * La posibilidad de usar unidades comerciales (Kilobytes, Megabits, etc...).
+* Un uso a la barra del menu (O tal vez eliminarla si no tiene ningun uso posibble).
 
 ---
 
