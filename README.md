@@ -24,11 +24,6 @@ The technical documentation file is currently **Work In Progress (WIP)** because
 
 ---
 
-*Mental note: If you need to package the clean source code right now, run this in your terminal:*
-```bash
-tar -czvf bitterconv-src.tar.gz src/ res/ xmake.lua
-```
-
 ## Español 🇪🇸
 
 Un conversor de unidades de datos (Bits/Bytes) y almacenamiento binario/decimal desarrollado en **C++** y **Dear ImGui**.
@@ -45,10 +40,3 @@ El archivo de documentación técnica está actualmente en **Work In Progress (W
 * Documentación de la lógica del algoritmo de conversión de precisión.
 * La posibilidad de usar unidades comerciales (Kilobytes, Megabits, etc...).
 * Un uso a la barra del menu (O tal vez eliminarla si no tiene ningun uso posibble).
-
----
-
-*Nota mental: Si necesitas empaquetar el código limpio ahora mismo, tira de la terminal:*
-```bash
-tar -czvf bitterconv-src.tar.gz src/ res/ xmake.lua
-```
