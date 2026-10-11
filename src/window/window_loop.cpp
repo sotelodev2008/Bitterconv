@@ -14,16 +14,20 @@ using namespace std;
 void window::loop() {
 
     static bool Menu = true; // Comprueba si el usuario esta en el menu
-    static float pre_input_int; // Valor numerico que mete el usuario
+    static float pre_input_float; // Valor numerico que mete el usuario
     static int pre_actual_option = 11;
     static int post_actual_option = 0;
     static const char* options[] = {
         "Bit", "Kibibit", "Mebibit", "Gibibit", "Tebibit", "Pebibit", "Exbibit", "Zebibit", "Yobibit", 
-        "Byte", "Kibibyte", "Mebibyte", "Gibibyte", "Tebibyte", "Pebibyte", "Exbibyte", "Zebibyte", "Yobibyte"
+        "Byte", "Kibibyte", "Mebibyte", "Gibibyte", "Tebibyte", "Pebibyte", "Exbibyte", "Zebibyte", "Yobibyte",
+        "Kilobit", "Megabit", "Gigabit", "Terabit", "Petabit", "Exabit", "Zettabit", "Yottabit",
+        "Kilobyte", "Megabyte", "Gigabyte", "Terabyte", "Petabyte", "Exabyte", "Zettabyte", "Yottabyte",
     }; //  Al usar char* puedes hacer cadenas de texto y si al nombre de la variable le pones [] puedes hacer arrays
     static const char* options_symbols[] = {
         "b", "Kib", "Mib", "Gib", "Tib", "Pib", "Eib", "Zib", "Yib",
-        "B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB"};
+        "B", "KiB", "MiB", "GiB", "TiB", "PiB", "EiB", "ZiB", "YiB",
+        "Kb", "Mb", "Gb", "Tb", "Pb", "Eb", "Zb", "Yb",
+        "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"};
 
     while (!glfwWindowShouldClose(ventana)) { // Comprueba si la ventana se tiene que cerrar
         glClearColor(0.1953125f, 0.32421875f, 0.22265625f, 1.0f); // Le dice a OpenGL los colores que debe usar para el proximo frame, estos son Rojo, Verde, Azul y Alfa (Transparencia)
@@ -32,7 +36,7 @@ void window::loop() {
         ImGui_ImplGlfw_NewFrame(); // Le digo a OpenGL que se prepare para recibir operaciones i/o
 
         ImGui::NewFrame(); // Crea un nuevo frame de ImGui
-        ImGuiWindowFlags flags = ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_MenuBar | ImGuiWindowFlags_NoTitleBar;
+        ImGuiWindowFlags flags = ImGuiWindowFlags_NoBackground | ImGuiWindowFlags_NoCollapse | ImGuiWindowFlags_NoResize | ImGuiWindowFlags_NoTitleBar;
         ImGui::SetNextWindowPos(ImVec2(0.0f, 0.0f));
         ImGui::SetNextWindowSize(ImVec2(450.0f, 350.0f));
         ImGui::Begin("Bitterconv", NULL, flags);
@@ -47,7 +51,7 @@ void window::loop() {
         ImGui::PushFont(ImGui::GetFont());
         ImGui::PopFont();
 
-        ImGui::InputFloat("##Pre_input", &pre_input_int); // El valor que el usuario escriba se guardara en ese float
+        ImGui::InputFloat("##Pre_input", &pre_input_float); // El valor que el usuario escriba se guardara en ese float
         ImGui::Combo("##Pre_input_selector", &pre_actual_option, options, IM_ARRAYSIZE(options));
         /*Combo es un menu desplegable para seleccionar objetos y a la hora de configurarlo se divide en 4 valores
         1. El primero es el texto descriptivo que aparecera al lado del combo
@@ -57,8 +61,8 @@ void window::loop() {
 
         ImGui::Combo("##Post_input_selector", &post_actual_option, options, IM_ARRAYSIZE(options));
 
-        float bitter = datacalc::converter(pre_input_int, pre_actual_option, post_actual_option);
-        if (bitter == pre_input_int) {ImGui::Text("%.3f", pre_input_int);}
+        float bitter = datacalc::converter(pre_input_float, pre_actual_option, post_actual_option);
+        if (bitter == pre_input_float) {ImGui::Text("%.3f", pre_input_float);}
         else if (bitter == -1) {ImGui::Text("Unknown error huh, soon to be patched");}
         else if (bitter == -8) {ImGui::Text("An update will be release, more Sooner than later adding comercial units");}
         else {ImGui::Text("%.9f", bitter);}
